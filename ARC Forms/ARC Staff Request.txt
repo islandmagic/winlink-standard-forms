@@ -8,9 +8,9 @@ DR#  <var DRnum>       Date of Request: <var Date>
 
 [Tasks]  >During these hours >How many workers >Where do they report >For how many days >First day workers needed >Who do they report to 
 
-[<var Tasks1>]  [<var HRsstart1> to <var HRsEnd1>]  [<var howmany1>]  [<var Reportto1>]  [<var Days1>]  [<var Firstday1>]  [<var Reportto1>]
-[<var Tasks2>]  [<var HRsstart2> to <var HRsEnd2>]  [<var howmany2>]  [<var Reportto2>]  [<var Days2>]  [<var Firstday2>]  [<var Reportto2>]
-[<var Tasks3>]  [<var HRsstart3> to <var HRsEnd3>]  [<var howmany3>]  [<var Reportto3>]  [<var Days3>]  [<var Firstday3>]  [<var Reportto3>]
+[<var Tasks1>]  [<var HRsstart1> to <var HRsEnd1>]  [<var howmany1>]  [<var Whereto1>]  [<var Days1>]  [<var Firstday1>]  [<var Reportto1>]
+[<var Tasks2>]  [<var HRsstart2> to <var HRsEnd2>]  [<var howmany2>]  [<var Whereto2>]  [<var Days2>]  [<var Firstday2>]  [<var Reportto2>]
+[<var Tasks3>]  [<var HRsstart3> to <var HRsEnd3>]  [<var howmany3>]  [<var Whereto3>]  [<var Days3>]  [<var Firstday3>]  [<var Reportto3>]
 
 >>> Request for Virtual Workers:
 

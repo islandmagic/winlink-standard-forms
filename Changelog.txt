@@ -1,3 +1,8 @@
+1.0.244.0	Oct 14, 2023
+- Improvements to the Bulletin form.
+- Updates to ARC Staff Requests form
+- Put back several SendReply.0 forms that got lost in an update.
+
 1.0.243.0	Oct 10, 2023
 - Put ICS213_SendReply.0 back in the distribution.
 - Fix a problem with the Bulletin form.
