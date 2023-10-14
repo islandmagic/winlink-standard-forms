@@ -1011,6 +1011,7 @@ document.getElementById('intensitydisplay').style.background =Intensitycolor;
 }
 
 function createMapNote (){
+   
 var notetext = document.getElementById('FormData').value; 
 var temp1= document.getElementById('eventType').value;
 var notetext=notetext.replace('k1', temp1);
@@ -1024,16 +1025,34 @@ var notetext=notetext.replace('k15', temp1);
 //var temp1= document.getElementById('mapStrength').value;
 //var notetext=notetext.replace('k16', temp1);
 
+var defLatitude= "{Latitude}";
+var defLongitude= "{Longitude}";
+var defGPSlat= "{GPSLatitude}";
+ var defGPlon= "{GPSLongitude}";
+    
+ 
 
 var temp1= document.getElementById('user_id').value;
 var notetext=notetext.replace('k3', temp1);
-
+ var gpstype = "User or GPS entered coordinates";
 var temp1= document.getElementById('ciim_mapLat').value;
+    if (temp1==''){temp1= defLatitude; var gpstype="Default center of user grid square"};
 var notetext=notetext.replace('k4', temp1);
 var temp1= document.getElementById('ciim_mapLon').value;
+    if (temp1==''){temp1= defLongitude; var gpstype= "Default center of user's grid square"}
 var notetext=notetext.replace('k5', temp1);
-
-// convert 
+    
+var notetext=notetext.replace('l6', gpstype);
+var temp1= document.getElementById('ciim_mapAddress').value;
+var notetext=notetext.replace('l5', temp1);
+    
+ //sept 23 get it they felt it
+    var temp1= document.getElementById('fldSituation_felt').value;
+    if (temp1 ==1){temp1='Yes'} else (temp1='No')
+    var notetext=notetext.replace('l15', temp1);
+    
+    
+// convert ciim_mapAddress
 var temp1= document.getElementById('xmapshaking').value;
 var notetext=notetext.replace('k6', temp1);
 var temp1= document.getElementById('xmapshelves').value;
@@ -1460,7 +1479,7 @@ Winlink Mapping filters can filter for specific events based on EventID.</p>
 <p class="style1"><strong>Email</strong>: the Winlink DYFI form will automatically add the USGS email dyfi_reports_automated@usgs.gov to your report upon clicking Submit.</p>
 <p class="style1">You are welcome to Cc: other stations and/or email addresses.</p>
 <p class="style1"><strong>Mapping</strong>: The Winlink DYFI form creates a mapping tag file that can be used by other Winlink users to map DYFI data from the report. By design the tag file only includes Latitude/Longitude, Winlink Estimated Intensity, Exercise/RealEvent, ExerciseID, Real EventID. Those fields can be filtered within Winlink Mapping and are also available in the CSV.<br>
-For questions regarding Winlink DYFI form contact the Winlink DYFI Project Coordinator Oliver Dully K6OLI, <a href="https://www.qrz.com/db/K6OLI" target="_blank">https://www.qrz.com/db/K6OLI </a></p>
+
 <p class="style1">For questions regarding the USGS DYFI program contact USGS at <a href="https://answers.usgs.gov/" target="_blank">https://answers.usgs.gov/</a></p>
 <p class="style1"><strong>Note</strong>: The form is a collaboration between the Winlink Development Team and the USGS DYFI team. Only those two teams have authority over the form.</p>
 <p class="style1"><strong>GPS</strong><br>
@@ -1640,12 +1659,14 @@ To complete your form submission, click Continue and close the open browser wind
       <tr>
         <td valign="top" bgcolor="#FFFFFF"><p class="style23">Your location - street address,  city, and state when the earthquake occurred: &nbsp;&nbsp;(REQUIRED) 
           <p class="style13"> &nbsp; &nbsp; &nbsp;
-              <input placeholder="STREET ADDRESS , CITY, STATE" Title="*STREET ADDRESS , CITY, STATE *" name="ciim_mapAddress" type="text" id="ciim_mapAddress" size="100" maxlength="90" /> 
+              <input name="ciim_mapAddress" type="text" required="required" id="ciim_mapAddress" placeholder="STREET ADDRESS , CITY, STATE" Title="*STREET ADDRESS , CITY, STATE *" size="100" maxlength="90" /> 
              </p>
-          <p class="style13"> <span class="style11">Optional GPS coordinates in the following  format: <span class="style35">32.504892 -116.982466</span></span>&nbsp;&nbsp;LAT
-            <input name="ciim_mapLat"  style="color:blue" type="text" id="ciim_mapLat" size="22" maxlength="40" placeholder="Example: 32.504891" onkeypress="return isNumberKey(event)" onchange="splitPaste(this.value);checklatlon(this.value, 'ciim_mapLat');Testlat();"; />
+          <p class="style13"> <span class="style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For accurate mapping of your location enter GPS coordinates in the following  format: <span class="style35">32.504892 -116.982466</span></span>&nbsp;&nbsp;<br />
+            &nbsp;&nbsp;&nbsp;
+            LAT
+            <input name="ciim_mapLat" type="text" id="ciim_mapLat" placeholder="Example: 32.504891"  style="color:blue" onchange="splitPaste(this.value);checklatlon(this.value, 'ciim_mapLat');Testlat();" onkeypress="return isNumberKey(event)" size="22" maxlength="40"; />
             &nbsp;&nbsp;&nbsp;LON 
-<input name="ciim_mapLon"  style="color:blue" type="text" id="ciim_mapLon" size="22" maxlength="40" placeholder="Example: -116.982466" onkeypress="return isNumberKey(event)" onchange="checklatlon(this.value, 'ciim_mapLon'); Testlon();" />
+<input name="ciim_mapLon" type="text" id="ciim_mapLon" placeholder="Example: -116.982466"  style="color:blue" onchange="checklatlon(this.value, 'ciim_mapLon'); Testlon();" onkeypress="return isNumberKey(event)" size="22" maxlength="40" />
                 <input name="xmyGPS" type="hidden" id="xmyGPS" value="{GPS}" size="20" style="outline: none !important;
     border:1px solid red;" />
                 </p>
@@ -2173,10 +2194,13 @@ Building permanently shifted over foundation<br />
 DateTime:T=k00
 Latitude:T=k4 
 Longitude:T=k5 
+Source of coordinates:M:User or GPS entered coordinates,Default center of user's grid square=l6
+Address:T=l5 
 Sender:T=k3 
 This DYFI report is a:M:EXERCISE,REAL EVENT=k1
 Exercise ID:M=k26
 Event ID:M=k27
+Was earthquake felt:M:Yes,No=l15
 Estimated numeric intensity(Modified Mercalli Scale):N=k15
 * Estimate of the intensity you reported:T=k12  [This intensity is a Winlink courtesy estimate only. USGS processes your report separately.]
 Comments:T=k25</textarea>
@@ -2846,9 +2870,9 @@ Other
  <input name="attached_file" type="hidden" id="attached_file" value="FormData.txt" />
  <input name="xMapfilename" type="hidden" id="xMapfilename" value="DYFI Map" />
  </span></span> </span></span></span></span></td>
-      <td width="10%">&nbsp;Ver 11.0 en<span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;">
+      <td width="10%">&nbsp;Ver 11.01 en<span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;">
       <span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;">
-      <input name="form_version" type="hidden" id="form_version" value="DYFI Winlink form Ver 11.0 en" />
+      <input name="form_version" type="hidden" id="form_version" value="DYFI Winlink form Ver 11.0.1 en" />
       </span></span></span></span> </span></span> </span> </span></td>
     </tr>
   </table>

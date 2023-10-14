@@ -696,6 +696,7 @@ cb11fld=document.getElementById("cb11fld").value + document.getElementById("vcts
 cb12fld=document.getElementById("cb12fld").value;
 cb13fld=document.getElementById("cb13fld").value;
 cb14fld=document.getElementById("cb14fld").value;
+    cb14bfld=document.getElementById("cb14bfld").value;
 cb15fld=document.getElementById("cb15fld").value;
 cb16fld=document.getElementById("cb16fld").value;
 cb17fld=document.getElementById("cb17fld").value;
@@ -707,9 +708,9 @@ cb22fld=document.getElementById("cb22fld").value;
 
 skyCoverNoConditions =skyCover
 skyCoverNoConditions =skyCoverNoConditions.substring(5);
-TheconditionsNoSkyCover =cb1fld+cb2fld+cb3fld+cb4fld+cb5fld+cb6fld+cb7fld+cb8fld+cb9fld+cb10fld+cb11fld+cb12fld+cb13fld+cb14fld+cb15fld+cb16fld+cb17fld+cb18fld+cb19fld+cb20fld+cb21fld+cb22fld;
+TheconditionsNoSkyCover =cb1fld+cb2fld+cb3fld+cb4fld+cb5fld+cb6fld+cb7fld+cb8fld+cb9fld+cb10fld+cb11fld+cb12fld+cb13fld+cb14fld+cb14bfld+cb15fld+cb16fld+cb17fld+cb18fld+cb19fld+cb20fld+cb21fld+cb22fld;
 TheconditionsNoSkyCover =TheconditionsNoSkyCover.substring(5);
-Theconditions =skyCover+cb1fld+cb2fld+cb3fld+cb4fld+cb5fld+cb6fld+cb7fld+cb8fld+cb9fld+cb10fld+cb11fld+cb12fld+cb13fld+cb14fld+cb15fld+cb16fld+cb17fld+cb18fld+cb19fld+cb20fld+cb21fld+cb22fld;
+Theconditions =skyCover+cb1fld+cb2fld+cb3fld+cb4fld+cb5fld+cb6fld+cb7fld+cb8fld+cb9fld+cb10fld+cb11fld+cb12fld+cb13fld+cb14fld+cb14bfld+cb15fld+cb16fld+cb17fld+cb18fld+cb19fld+cb20fld+cb21fld+cb22fld;
 Theconditions = Theconditions.substring(5);
 document.getElementById("TheConditions").value = Theconditions;
 }
@@ -1883,7 +1884,7 @@ function gettinchcm(fldname, fldvalue){
         </select>
         <input name="rainShowerIntensity" id="rainShowerIntensity"  type="hidden" value="" size="5" maxlength="4" />			  
 
-		\
+		
 
 			</td>
               <td><input name="cb8" type="checkbox" id="cb8" value="true" onclick="Flip('cb8fld', ' ... BLOWING SNOW')" /> 
@@ -1932,7 +1933,9 @@ function gettinchcm(fldname, fldvalue){
             </tr>
             <tr align="left" valign="top">
 
-              <td></td>
+              <td><input name="cb14bfld" type="checkbox" id="cb14b" value="true" onclick="Flip('cb14bfld', ' ... SHALLOW FOG')" />
+SHALLOW FOG
+   <input name="cb14bfld" type="hidden" id="cb14bfld" /></td>
               <td><input name="cb20" type="checkbox" id="cb20" value="true" onclick="Flip('cb20fld', ' ... ASH')" /> 
                 ASH
                   <input name="cb20fld" type="hidden" id="cb20fld" /></td>
@@ -2147,9 +2150,9 @@ Comments: T=j40
           <input class="BtnFormat2" value="Reset Form " name="ResetForm" style="height: 28px; color: rgb(204, 0, 0);" type="reset"  />
 &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span style="font-style: italic;"> &nbsp;<span style="font-weight: bold;"> &nbsp;&nbsp;<span style="font-style: italic;"><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span><span style="font-style: italic;">&nbsp;&nbsp;&nbsp;</span></span><span class="style46">Form Concept by KF5SMH&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-style: italic;"><span style="font-weight: bold;"><span style="font-style: italic;"><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;<span style="font-style: italic;"><span style="font-weight: bold;"><span style="font-style: italic;"><span style="font-weight: bold;">
 <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
-</span></span></span></span>&nbsp;&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;</span>&nbsp;<span class="style29">&nbsp;</span></span></span><span class="style29">Ver 4.0.2 K7IBC</span><span style="font-style: italic;"><span class="style17"><span class="formtext11">
+</span></span></span></span>&nbsp;&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;<span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;</span>&nbsp;<span class="style29">&nbsp;</span></span></span><span class="style29">Ver 4.0.3 K7IBC</span><span style="font-style: italic;"><span class="style17"><span class="formtext11">
 <span style="font-style: italic;"><span style="font-style: italic;">
-<input name="Templateversion" type="hidden" id="Templateversion" value="Local Weather v 4.0.2 K7IBC" />
+<input name="Templateversion" type="hidden" id="Templateversion" value="Local Weather v 4.0.3 K7IBC" />
 </span></span></span></span></span>    </span> </p></td>
     </tr>
   </table>  </td>
