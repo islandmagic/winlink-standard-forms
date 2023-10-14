@@ -1,3 +1,7 @@
+1.0.243.0	Oct 10, 2023
+- Put ICS213_SendReply.0 back in the distribution.
+- Fix a problem with the Bulletin form.
+
 1.0.242	Oct 9, 2023
 - If the "Address" isn't entered on the DYFI form, display an error message saying the address field is required.
 - Fix typo in After Action Review form.

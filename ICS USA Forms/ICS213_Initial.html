@@ -1440,10 +1440,6 @@ var temp1= document.getElementById('mapfilename').value;
 var jsontext=jsontext.replace('j1', temp1); 
     var temp1= document.getElementById('IsExercise').value;  
     var jsontext=jsontext.replace('j0', temp1); 
-    
-     var temp1= document.getElementById('ExerciseYesNo').value;  
-    var jsontext=jsontext.replace('j0a', temp1); 
-    
 
 
 var temp1= document.getElementById('FormTitle').value;
@@ -1926,10 +1922,9 @@ to links</span></a> </div>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tbody>
       <tr>
-        <td width="25%"><input name="exbtn" type="checkbox" id="exbtn" value="true" onclick="if(document.getElementById('IsExercise').value =='') {document.getElementById('IsExercise').value = '** THIS IS AN EXERCISE **';document.getElementById('ExerciseYesNo').value='Yes' } else { document.getElementById('IsExercise').value = '';document.getElementById('ExerciseYesNo').value='No' }"/>
+        <td width="25%"><input name="exbtn" type="checkbox" id="exbtn" value="true" onclick="if(document.getElementById('IsExercise').value =='') {document.getElementById('IsExercise').value = '** THIS IS AN EXERCISE **'} else { document.getElementById('IsExercise').value = '';}"/>
           <span style="font-size: 12px">THIS IS AN EXERCISE</span>
-          <input name="IsExercise" type="hidden" id="IsExercise"  />
-          <input name="ExerciseYesNo" type="hidden" id="ExerciseYesNo" value="No"  /></td>
+          <input name="IsExercise" type="hidden" id="IsExercise"  /></td>
         <td width="50%"><span class="style16"><span class="formtext">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <input type="button" value=" Load ICS213 INITIAL Data " onclick="document.getElementById('txtfiletoread').click();" />
@@ -2010,7 +2005,6 @@ Subject:&nbsp;  <input name="Subjectline" id="Subjectline" size="55" maxlength="
   </span><span style="color: black;">
   <textarea name="FormData" cols="70" rows="25" id="FormData" style="display: none;">MapFileName:T=ICS-213
 0. Form Note:M=j0
-0b. This an exercise:M:Yes,No=j0a
 Organization:T=j2
 DateTime:T=j3
 Latitude:T=j4 
@@ -2110,10 +2104,10 @@ Approved by:&nbsp; </span>
 
 <td width="121" style="width: 120px;">
 
-<div align="right">Ver 43.1
+<div align="right">Ver 43.0
   
 </div>
-<input name="Templateversion" type="hidden" id="templateversion" value="ICS 213  v.43.1" />
+<input name="Templateversion" type="hidden" id="templateversion" value="ICS 213  v.43.0" />
 
 </td>
 
