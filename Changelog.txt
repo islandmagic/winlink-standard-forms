@@ -1,0 +1,180 @@
+1.0.240
+- Submit Button Updates
+  ARC Forms
+  CA State Forms
+  GENERAL Forms
+  SC State Forms
+  SHARES Forms
+  TX State Forms
+  HICS Forms
+  CANADIAN Forms
+  FEMA Forms
+  HI State Forms
+  GENERAL MEDICAL Forms
+  OR STATE Forms
+- USGS Forms explanation updates.
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+1.0.239
+- Local Weather Report Form	Fixed Barometer imperial/metric
+- DYFI en	Fixed one survey question
+- DYFI deutsch	Added German DYFI
+- Winlink Check-in	Removed Viewer Comment
+- ICS-213	Enabled GIS
+- ICS USA Forms	Moved Submit button to left
+We are in the process of moving the Submit button to the far left in all forms. Please bear with us.
+
+1.0.238
+- Local Weather Report Form	Fixed html references
+
+1.0.237
+- Hospital Bed Report	fixed typo
+- LAX Bed Availability	removed forward looking columns per Ref 1122.1 2023-04, added "THIS IS AN EXERCISE" checkbox.
+- LA COUNTY Forms	Removed LAX DRC forms
+- Local Weather Report	 K7IBC added options. Added "THIS IS AN EXERCISE" checkbox.
+- Added "THIS IS AN EXERCISE" checkboxes to
+  * General Medical Templates	
+	Hospital Bed Report
+	Hospital Status
+	Medical Incident Report
+- Winlink Check-in and Check-out	Replaced c.From help text
+- RRI Welfare Quick Message	Added character counter
+
+1.0.236
+
+- WEATHER	Severe Weather Form added metric options
+- GENERAL	After Action Review replaces After Action Report.
+- LACOUNTY	LAX HSA and Resource Request added Exercise checkboxes. Code updates. Removed both from MAPPING GIS folder.
+- LACOUNTY	DCS213 code updates.
+- HI Siren Report code updates
+- GENERAL	Moved Incident Action Plan, Quick Message, SITREP, Welfare Message, Windshield Damage Worksheet from Standard Templates to website. 
+- GENERAL	Streamlined and added features to Quick Message
+- RADIOGRAM & RRI	Welfare Radiogram and Quick Welfare Message spelling corrections.
+- SHARES	Removed SHARES Notice
+
+Special thanks to Georges Auberger WH6AZ for suggesting code updates and Steve KB1TCE for RRI updates.
+
+1.0.235 
+- Updated RRI Welfare Radiogram
+- Winlink Check-in & Check-out: added quick paste via tab to lat/lon entries
+- Radiogram updates to accept ARL and RRC. Form info updates.
+
+1.0.234
+- Updated USGS DYFI Spanish html reference
+- Winlink Check-in/out 
+    - Save Data saves Block 2 information. 
+    - Harmonized Winlink message headers. 
+
+1.0.233
+- Added RRI Welfare Message v.2.3.2
+- Palmetto Resource Request V2A renumbered fields, streamlined form per request
+- Field Situation Report locked Setup button
+- Winlink Check-in and Check-out
+   - New, more intuitive UX
+   - Updated, DACH compatible Latitude & Longitude tags and calculations
+   - Map as V5
+   - Streamlined Code
+   - Updated CSV export columns
+   - Numbered labels to distinguish Winlink Lat/Lon from form Lat/Lon
+
+1.0.232
+- SC Palmetto Resource Request removed instruction bar for voice stations, changed TXT numbering, bolded Viewer item 8. Version V1F.
+- Hurricane Report Updates
+- Local WX Report Updates
+- Updated DYFI English andd Spanish versions. Includes OPTIONAL Earthquake Early Warning Survey.
+
+1.0.231
+- Fixed WS Bridge Damage Form
+
+1.0.230
+- Added Palmetto Resource Request to SC STATE Forms folder.
+
+1.0.229
+- Added Medical Incident Report "Dutch Creek Protocol"
+- Updates to RRI Radiogram
+- Updates to Local Weather Report: one report for F and C, added field numbering
+
+1.0.228
+- WSDOT Roadway Damage Report updated
+- WSDOT Bridge Damage Report updated
+
+1.0.227
+- Field Situation Report - Updated Water variable
+- Replaced CA FIE 730 with FRM 900-001 SitRep
+
+
+1.0.226
+* Hemisphere checks added to
+	- Humanitarian Needs Form
+* Harmonized some Field Situation Report Viewer fonts
+* Corrected j26 variable in Local Weather Report mapping reference
+* Hawaii Siren Report: fixed spelling in one CSV output field
+
+1.0.225
+* Hemisphere checks added to
+	- USGS DYFI Espanol
+	- Hospital Bed Report
+	- Hospital Status
+	- LAX Bed Availability Report
+	- HICS 251 Facility Status Report
+	- SDG ARES Hospital Status
+* Added Humanitarian Needs Form to General Folder
+* Updated Mapping-GIS Shortcuts
+
+1.0.224
+* Hemisphere checks added to
+    - USGS DYFI
+    - Field Situation Report
+    - Winlink Check-out
+    - Hurricane Report
+    - Local Weather Report
+    - Severe Weather Report
+* Updated Mapping-GIS Shortcuts
+* Updated DCS-213 to allow routing selection in Viewer
+* Fixed Hawaii Siren Report Reference
+
+1.0.223
+* Deleted RRI Multi-Client Worksheet
+* Updated Hawaii Siren Form
+* ICS201 - locked block 9
+* Winlink Check-in - added hemisphere check
+* DCS213 - Updates
+
+1.0.222
+*Corrected Folder structure
+
+1.0.221
+*Added Hawaii Siren Report to HI folder and Mapping-GIS Folder
+
+1.0.220
+* RRI Folder: Added Welfare Message Shortcut to .
+* Field Situation Report: Added Grid Square Geocoordinate Check
+* Winlink Check-in: Added Grid Square Geocoordinate Check
+* WSDOT Bridge Damage Report: Updated
+* WSDOT Road Damage Report: Updated 
+* LAX Bed Availability - HSA: Updated CSV output, changed map name.
+* Radio Net Log: Fixed Setup information propagating to Viewer
+* Updated Mapping-GIS Shortcuts
+
+1.0.219
+* Added ICS 201 Incident Briefing
+* Updated HICS 201 Incident Briefing - corrected Block 4. field placement and viewer color.
+* Local Weather Report Updated: added wind direction "Variable"
+* Cleaned up superfluous files
+
+1.0.218.0 (2022-11-09) 
+* Updated HICS 201 Incident Briefing - form info
+* Updated HICS 254 Patient Tracking - fixed parsing
+* Updated Mapping/GIS folder shortcuts
+* Renamed After Action Report.txt
+* Updated Winlink Check-in Station Name pop-up
+* Updated Winlink Check-out Station Name pop-up
+
