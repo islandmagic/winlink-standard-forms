@@ -690,18 +690,18 @@ to links</span></a> </div>
 <table width="938" border="1" cellpadding="4" cellspacing="0" bordercolor="#999999" style="font-size: 14px; width: 900px; ">
 <tbody>
 <tr>
-<td width="918" height="26" colspan="2" bgcolor="#dee9f9" style="text-align: center; vertical-align: top;"><p><small><big><big><span class="style11"><big><small>BULLETIN<br>
+<td width="918" height="26" colspan="2" bgcolor="#dee9f9" style="text-align: center; vertical-align: top;"><p><small><span class="style11"><small>BULLETIN<br>
   <span  id="SubjectText">Winlink </span>
-</small></big></span></big></big></small></p>
+</small></span></small></p>
   <table width="100%"  border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td width="28%"><b><big>
+      <td width="28%"><b>
         <input type="regular" value="Setup" onclick="SetupTitle()" />
-      </big></b><span class="style7"><big>&nbsp;Click to add  agency/group&nbsp;name</big></span><span class="style8">&nbsp;</span> <small></small></td>
+      </b><span class="style7">&nbsp;Click to add  agency/group&nbsp;name</span><span class="style8">&nbsp;</span> <small></small></td>
       <td width="48%"><div align="center">
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <input name="loadbtn" type="button" id="loadbtn" onClick="document.getElementById('txtfiletoread').click();" value=" Load Bulletin Data" />
-&nbsp;&nbsp;&nbsp;<small><span style="font-size: 12px;"><strong><small><small><span style="font-size: 12px;"><strong><small><span style="font-size: 14px;"><big style="font-weight: bold;"><big>&nbsp;</big></big></span></small></strong></span></small><big style="font-weight: bold;"><big><span class="style6"><strong><small><big><small><big><span style="font-weight: normal;"><small><span class="style9"><a href="#pop1"><big style="color: rgb(204, 0, 0);">Form Info</big></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></small></span></big></small></big></small></strong></span></big></big></small></strong></span></small>
+&nbsp;&nbsp;&nbsp;<small><span style="font-size: 12px;"><strong><small><small><span style="font-size: 12px;"><strong><small><span style="font-size: 14px;"><big style="font-weight: bold;">&nbsp;</span></small></strong></span></small><big style="font-weight: bold;"><span class="style6"><strong><small><small><span style="font-weight: normal;"><small><span class="style9"><a href="#pop1"><big style="color: rgb(204, 0, 0);">Form Info</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></small></span></small></small></strong></span></small></strong></span></small>
 <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
       </div></td>
       <td width="24%"><div align="right"><small><span style="font-size: 12px;"><strong><small></small></strong></span></small></div></td>
@@ -710,69 +710,73 @@ to links</span></a> </div>
   </td>
 </tr>
 <tr>
-<td colspan="2" style="vertical-align: top; text-align: center;"><small><span style="font-size: 14px;"> <pbzloc ="1" style="font-weight: normal;"></pbzloc></span></small>
+<td colspan="2" style="vertical-align: top; text-align: center; font-size: 14px;"><small><span style="font-size: 14px;"> <pbzloc ="1" style="font-weight: normal;"></pbzloc></span></small>
 <div align="left"><small><span style="font-size: 14px;"><pbzloc ="1" style="font-weight: normal;">&nbsp;&nbsp;<br />
 </pbzloc>&nbsp; <pbzloc ="1" style="font-weight: normal;">For (Name/Group)</pbzloc></span>
 &nbsp;&nbsp; <input placeholder="Name or Group this bulletin is for." title="Add email(s) or callsign(s) after Submitting. Seperate with semicolon ;" id="Name" maxlength="45" name="Name" size="50" />
-&nbsp;&nbsp;<big><big>Bulletin Nr.&nbsp; <input placeholder="Optional number or identifier" maxlength="25" size="30" name="BullNr" /> </big></big>
+&nbsp;&nbsp;Bulletin Nr.&nbsp; <input placeholder="Optional number or identifier" maxlength="25" size="30" name="BullNr" /> 
 <input name="Title" type="hidden" id="Title" value="Winlink" />
 <br />
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; <br />
 <span style="font-size: 14px;">&nbsp;
-From<big><span style="font-size: 14px;"></span></big></span><big>
-<big>(Name/Group)</big> &nbsp; </big>
-<input placeholder="Your name or group/organization." id="From_Name" maxlength="45" name="From_Name" size="50" />&nbsp;&nbsp; </small><small><big><big>&nbsp;Date/Time</big></big></small><small>
+From<span style="font-size: 14px;"></span></span>
+(Name/Group) &nbsp; 
+<input placeholder="Your name or group/organization." id="From_Name" maxlength="45" name="From_Name" size="50" />&nbsp;&nbsp; </small><small>&nbsp;Date/Time</small><small>
 &nbsp;</small><small>&nbsp; &nbsp;</small>
 <input style="color: rgb(204, 0, 0);" placeholder="Click to Add Date/Time" name="ActivityDateTime1" maxlength="23" id="ActivityDateTime1" size="24" onclick="TimeNow('ActivityDateTime1', 'Activities1')" /> <br />
 <small> </small> </div>
 <hr style="width: 100%; height: 2px;" />
-<div align="left"><small><span style="font-size: 14px;">&nbsp; </span><big><big>Subject
-&nbsp;</big></big></small><small><big>
-<input id="Subjectline" maxlength="70" name="Subjectline" size="80" />
-</big></small><small><big><big>&nbsp;
-<span class="style2">Select</span> &nbsp;</big></big></small><big>
-<select size="3" required="required" name="level">
-  <option >Information</option>
-  <option>Read Soon</option>
-  <option>READ NOW</option>
+<div align="left">
+  <p><small><span class="style2"><span style="font-size: 14px;">
+   </span></span><span style="font-size: 14px;">&nbsp; </span><span class="style2"><span style="font-size: 14px;">Precedence:
+<select name="level" size="1" id="level">
+  <option value="Z/ Flash ">Z/ Flash </option>
+  <option value="O/ Immediate ">O/ Immediate </option>
+  <option value="P/ Priority">P/ Priority</option>
+  <option value="R/ Routine" selected="selected">R/ Routine</option>
 </select>
-<textarea name="parseme" cols="60" id="parseme" style="display: none;"></textarea> </big></div>
+   </span></span></small></p>
+  <p><span style="font-size: 14px;">&nbsp; </span>Subject
+    &nbsp;<small>
+      <input id="Subjectline" maxlength="70" name="Subjectline" size="80" />
+</small><small>&nbsp;</small></p>
+</div>
 </td>
 </tr>
 <tr>
-<td colspan="5" style="height: 88px; vertical-align: top; text-align: center;">
-<div align="left"><big>&nbsp;&nbsp;Bulletin
+<td colspan="5" style="height: 88px; vertical-align: top; text-align: center; font-size: 14px;">
+<div align="left">&nbsp;&nbsp;Bulletin
 <br />
-</big><small> <span style="font-size: 14px;">&nbsp; </span> 
+<small> <span style="font-size: 14px;">&nbsp; </span> 
 <textarea placeholder="Insert your bulletin. Copy and Paste of plain text is OK." cols="120" rows="4" name="Message" id="Message"onChange="this.value=RWS(this.value)" onKeyUp="AutoGrowTextArea(this)"></textarea> 
 </small></div>
 </td>
 </tr>
 <tr>
-<td colspan="2" style="height: 35px; text-align: justify; vertical-align: top;" height="54"><small> <big><big><small><span style="font-family: Calibri;">
-  </span></small></big></big></small>
+<td colspan="2" style="height: 35px; text-align: justify; vertical-align: top;" height="54"><small> <small><span style="font-family: Calibri;">
+  </span></small></small>
   <table width="100%"  border="0" cellpadding="0" cellspacing="0" bordercolor="#FFFFFF">
     <tr>
-      <td width="90%"><small><big><big><small><span style="font-family: Calibri;">
+      <td width="90%"><small><small><span style="font-family: Calibri;">
         </span>
                 <input style="height: 28px; width: 52px; " title="After submitting, close browser, then address message for posting" class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="Post" name="Submit" value="Submit" type="submit" />
 &nbsp;<span style="color: rgb(128, 0, 0);"> </span><span style="font-family: Calibri;">
 <input name="savebtn" type="button" id="savebtn"  onClick="SaveData()" value="Save Bulletin Form Data" />
-      </span>&nbsp;&nbsp;<span ><span><span style="font-size: 12px;"></span></span></span>&nbsp;</small></big></big><span style="color: rgb(128, 0, 0);">&nbsp;</span></small>
+      </span>&nbsp;&nbsp;<span ><span><span style="font-size: 12px;"></span></span></span>&nbsp;</small><span style="color: rgb(128, 0, 0);">&nbsp;</span></small>
         <input class="BtnFormat2" value="Reset Form " name="ResetForm" style="color: rgb(204, 0, 0);" type="reset" />
         <small><span style="color: rgb(128, 0, 0);"> &nbsp; &nbsp;<span style="color: black;"> </span><span style="color: black;">&nbsp;&nbsp;
         <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
         <input name="Templateversion" type="hidden"
 
-                                    id="Templateversion" value="Winlink Bulletin v 14.3" />
+                                    id="Templateversion" value="Winlink Bulletin v 14.4" />
         </span></span></small></td>
-      <td width="10%"><big><small>&nbsp;</small></big><small><big>Ver 14.3</big><span style="font-size: 12px;"><big style="font-weight: bold;"></big></span></small></td>
+      <td width="10%"><small>&nbsp;</small><small>Ver 14.4<span style="font-size: 12px;"><big style="font-weight: bold;"></span></small></td>
     </tr>
   </table>
-  <small><big><big><small><span style="font-family: Calibri;">
-  </span></small></big></big></small></td>
+  <small><small><span style="font-family: Calibri;">
+  </span></small></small></td>
 </tr>
 </tbody>
 </table>

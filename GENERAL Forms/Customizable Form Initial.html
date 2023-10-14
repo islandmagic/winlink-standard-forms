@@ -185,6 +185,7 @@ width:45px;
   font-size: 12px;
    cursor: pointer;
 }
+.style17 {color: #FF0000}
 </style>
 <script>
 function shortmonth(monthnum) {
@@ -364,22 +365,79 @@ if (fileNameToSaveAs == null){return};
 }
 
 // end export
+    
+function getEX (str) {
+
+//console.log (str);
+ var line=document.getElementById(str).value;
+   //lert('str '+line);
+if (line =='--') {line=''}
+
+//if (line =='FALSE') {line=''}
+
+//console.log(str);
+
+// fix quotes
+
+  line = line.replace(/[\u2014]/g, "--")        // emdash
+
+line = line.replace(/[\u2022]/g, "*")         // bullet
+
+line = line.replaceAll(/[\u2018\u2019]/g, "'")   // smart single quotes
+//ne = line.replaceAll('"',"''");  // smart double quotes
+
+// end fix  quotes
+
+
+
+ var addquote = false;
+
+ var position = line.search('"');
+
+//if (position != -1){line = line.replace(/"/g, '""');addquote = true}
+
+
+
+var position = line.search(",");
+
+if (position != -1){ addquote = 'true'}
+
+if (addquote==true) {var line = '"' +line+'"';} 
+//alert(line);
+return line;
+
+} 
+    
 function ExportData() {
 		var mydata= "";
 		
-		var mydata=mydata +'"'+ document.getElementById('NameA').value+'",'; 
-				var mydata=mydata +'"'+ document.getElementById('NameB').value+'",'; 
-						var mydata=mydata +'"'+ document.getElementById('NameC').value+'"\n'; 
+		var mydata=mydata +getEX('Incident_Name')+"\n"
+				var mydata=mydata +getEX('Desc')+"\n"; 
+				var mydata=mydata +getEX('ActivityDateTime1')+'\n\n';
+    
+var mydata=mydata+"#"+',';
+var mydata=mydata + getEX('NameA')+','; 
+    var mydata=mydata +getEX('NameB')+','; 
+var mydata=mydata+getEX('NameC')+'\n'; 
+    
 	for (x = 1; x <31; x++) {
+      
 
-        //var tabs = lines[line].split('\t',11);
-         if (document.getElementById('Assignment'+x).value !== ''){
-			var mydata=mydata +'"'+ document.getElementById('Assignment'+x).value+'",';
-			
-		 		var mydata=mydata+'"'+document.getElementById('Name'+x).value+'",';
+        
+         if (document.getElementById('Assignment'+x).value !== '')
+         {//document.getElementById('Assignment'+x).value;
+            var add1=x+',';
+			var add2=document.getElementById('Assignment'+x).value;	if(add2.search(',')>0) {add2='"' +add2+'"'+','};
 
-			var mydata=mydata+'"'+document.getElementById('Method'+x).value+'"\n';
-		
+//if (position != -1){ addquote = 'true'}
+		 //var linestring=linestring +document.getElementById('Name'+x); 
+                var add3=document.getElementById('Name'+x).value; if(add3.search(',')>0) {add3='"' +add3+'"'+','; alert(add3)};
+			var add4= document.getElementById('Method'+x).value; if(add4.search(',')>0) {add4='"' +add4+'"'+'\n'};
+	  var  linestring=add1+add2+add3+add4;
+             var  mydata=mydata+ linestring;
+         
+             
+             //Assignment Name  Method
 						
 			document.getElementById('parseme').value = mydata;
 			}
@@ -387,8 +445,21 @@ function ExportData() {
 			 
 		
 			document.getElementById('parseme').value = mydata;
-			
-			ExporttoExcel();
+    
+    var doWeattach= document.getElementById('DoAttach').value;
+   if (doWeattach =='true')    {
+    // now create header
+   var l1 = document.getElementById('Incident_Name').value 
+   var  l2 = document.getElementById('Desc').value //
+    var l3 = document.getElementById('ActivityDateTime1').value 
+    
+    var littleheader = l1+"\n"+l2+"\n"+l3+"\n\n"
+	//		
+    document.getElementById('attached_file').value =l2+".csv";
+			document.getElementById('attached_text').value = mydata;
+    
+}
+    //ExporttoExcel();
 			
 			//saveTextAsFile();
 			}
@@ -729,7 +800,7 @@ to links</span></a> </div>
 <tr valign="top" bgcolor="#dee9f9">
 <td colspan="2" nowrap="nowrap" style="text-align: center;"><p><big><span style="font-weight: bold;">&nbsp;
  INFORMATION
-&nbsp;FORM &nbsp;&nbsp;</span><small>Ver 8.5</small><br /> 
+&nbsp;FORM &nbsp;&nbsp;</span><small>Ver 8.65</small><br /> 
 <span  id="SubjectText"><strong>WINLINK </strong></span>
 </big></p>
   <p align="left"><b><big>
@@ -745,12 +816,12 @@ or Use Name<span style="font-weight: normal;"> </span><br />
 <b><input title="Name given for this event or this forms use." id="Incident_Name" maxlength="60" name="Incident_Name" size="70" /> </b></p>
 <p><span style="font-weight: normal;">Description
 or Form Information</span><br />
-<b><input title="Any description or other info you may wish to provide." id="Incident_Name" maxlength="60" name="Desc" size="70" /></b></p>
+<b><input title="Any description or other info you may wish to provide." id="Desc" maxlength="50" name="Desc" size="50" /></b></p>
 </td>
 <td style="width: 43%; text-align: center;"><span style="font-weight: normal;">Form Creation Date/Time</span><span style="font-weight: normal;"></span>&nbsp;
 &nbsp;<input placeholder="Click to Add Date/Time" name="ActivityDateTime1" maxlength="23" id="ActivityDateTime1" size="24" onclick="SetDateTime('fulldatetime','ActivityDateTime1')" />
 <span class="formbold"><span class=""><small>
-<input name="Title" type="hidden" id="Title" value=" DELAWARE COUNTY OFFICE OF EMERGENCY MANAGEMENT" />
+<input name="Title" type="hidden" id="Title" value="Yolo ARES" />
 </small></span></span><br />
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
@@ -961,34 +1032,42 @@ whatever Column Name you want for each category</span></span></p>
 </td>
 </tr>
 <tr>
-<td height="70" colspan="3" style="text-align: justify;">&nbsp;
-&nbsp; &nbsp;
+<td height="70" colspan="3" valign="top" style="text-align: justify;">&nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp;
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp; &nbsp;Sender's
-Comments or Additional&nbsp; Information&nbsp;<br />
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-&nbsp; &nbsp;&nbsp; &nbsp; <textarea title="Be brief" cols="130" rows="2" name="Comments" id="Comments"  onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea></td>
+&nbsp; &nbsp; &nbsp;
+<p>Sender's
+  Comments or Additional&nbsp; Information&nbsp;<br />
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  &nbsp; &nbsp;&nbsp; &nbsp; 
+  <textarea title="Be brief" cols="130" rows="2" name="Comments" id="Comments"  onkeyup="AutoGrowTextArea(this)" onchange="this.value=RWS(this.value)"></textarea>
+</p>
+<p><small><b><span style="font-weight: normal;"><span class="style17">&nbsp;</span></span><span class="style17">Attach CSV data file to message?</span>
+      <input name="AddAttachment" type="radio" onclick="document.getElementById('DoAttach').value =  this.value" value="true" />
+Yes <span style="font-weight: normal;">&nbsp;&nbsp; </span>
+<input name="AddAttachment" type="radio"onclick="document.getElementById('DoAttach').value =  this.value" value="false" checked="checked" />
+No <span style="font-weight: normal;">&nbsp;</span>
+<input name="DoAttach" type="hidden" id="DoAttach" value="" />
+<small><b><span style="font-weight: normal;">&nbsp;</span></b>
+<input name="attached_file" type="hidden" id="attached_file" value="" />
+</small></b></small> </p>
+    <textarea name="attached_text"  cols="140" rows="3" id="attached_text" style="display: none;"></textarea></td>
 </tr>
 <tr>
   <td height="45" colspan="3" style="vertical-align: top; height: 35px; text-align: justify;"><span class="formtext"><span style="font-family: Calibri;">&nbsp;</span></span>
-    <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="post" name="Submit" size="6"  value="Submit" type="submit" /><span style="font-weight: bold;"><b><span style="font-weight: normal;"><big>&nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big> </big></span></span></big></span></b><b><span style="font-weight: normal;"><big>&nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big> </big></span></span></big></span></b> </span>
-    <input class="BtnFormat2" value="Reset Form " name="ResetForm" type="reset" />
+    <input class="SubmitBtn" enctype="multipart/form-data" id="Submit" method="post" name="Submit" size="6"  value="Submit" type="submit" onclick="ExportData()"/><span style="font-weight: bold;"><b><span style="font-weight: normal;"><big>&nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big> </big></span></span></big></span></b><b><span style="font-weight: normal;"><big>&nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big> </big></span></span></big></span></b> </span>
+    <input class="BtnFormat2" value="Reset Form " name="ResetForm" type="reset" onclick="ExportData()"/>
     &nbsp; <b><span style="font-weight: normal;"><big> &nbsp;<span class="formtext"><span style="font-family: Calibri;">&nbsp;<big>
     <input type="button" value="Save Information Form  Data"  onclick="SaveData()" />
     </big>&nbsp; <small> </small> </span></span>&nbsp;
-    <input type="button" value="Export Data to Spreadsheet Format"  onclick="ExportData()" />
+    <input type="button" value="Export Data to Spreadsheet Format" style="display: none;" onclick="ExportData()" />
     <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
     <input name="Templateversion" type="hidden"
 
-                                    id="Templateversion" value="Information form v 8.5" />
+                                    id="Templateversion" value="Information form v 8.6" />
     </big></span></b></td>
 </tr>
 </tbody>
@@ -998,7 +1077,7 @@ Comments or Additional&nbsp; Information&nbsp;<br />
 </tr>
 </tbody>
 <!-- popup starts here -->
-</table>
+</table> 
 </form>
 </div>
 </body></html>

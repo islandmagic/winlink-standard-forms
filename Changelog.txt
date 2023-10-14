@@ -1,3 +1,15 @@
+1.0.242	Oct 9, 2023
+- If the "Address" isn't entered on the DYFI form, display an error message saying the address field is required.
+- Fix typo in After Action Review form.
+- Customizable Form v 8.6 has been modified to add a check box to include a CSV data file with all data entered into form.
+- ICS 202, version Ver 1.0.4  corrects a bug where the “user set agency”  wasn’t being displayed in the message and the viewer.
+- Added ON IMS205 form to Canadian folder -- Ontario Incident Telecommunications Plan
+- Added a new map filter item "This is an exercise: Yes/No" to the ICS-213 mapping data corresponding to the "Exercise" checkbox on the form.
+- Fix the way the date-time is specified for the Winlink Check-In form.
+- Change "ICS 309" to "Form 309" in the 309 Communications Log form.
+- Update Bulletin form to use the precedence to outine (default), Priority, Immediate and Flash as the drop down options. 
+- PH Winlink Check in and Check out comment character limit removed
+
 1.0.241
 - DCS-213 Fixed Button assignements
 - Local WX Report Updates

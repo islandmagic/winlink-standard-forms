@@ -3,6 +3,7 @@ Form: ICS202_Incident_Objectives.html,ICS202_Incident_Objectives_Viewer.html
 To: 
 Subject: ICS 202 IAP-<var IncidentName>, <var DateTime> 
 Msg: Incident Action Plan
+<var Title>
 
 1. Incident Name:  
 <var IncidentName>

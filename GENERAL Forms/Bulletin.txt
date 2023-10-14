@@ -1,16 +1,22 @@
-Form: Bulletin Initial.html,Bulletin Viewer.html
-To: 
-Subject: <var Subjectline> #<var BullNr> <var Level>	
-Msg:
-<var Title> Bulletin For: <var Name>
-Bulletin #: <var BullNr>
-Bulletin From: <var From_Name>
-Date/Time: <var ActivityDateTime1>
-Read Level: <var Level>
-
-<var Message>		
-
-
-
-
-
+Form: Bulletin Initial.html,Bulletin Viewer.html
+To: 
+Subject://WL2K <var Level>/  <var Subjectline> #<var BullNr> 	
+Msg:
+<var Title> Bulletin For: <var Name>
+Precedence: <var Level>
+Bulletin #: <var BullNr>
+Bulletin From: <var From_Name>
+Date/Time: <var ActivityDateTime1>
+
+<var Message>
+		
+------------------------------------
+Express Sending Station: <MsgSender>
+Express Version: <ProgramVersion>
+Template Version: <var Templateversion>
+
+
+
+
+
+

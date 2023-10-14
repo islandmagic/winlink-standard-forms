@@ -1202,13 +1202,15 @@ var temp1= document.getElementById('Mapfilename').value;
 var jsontext=jsontext.replace('j1', temp1);
 
 var temp1= document.getElementById('Status').value;
-var jsontext=jsontext.replace('j0', temp1);
-
+var jsontext=jsontext.replace('j2', temp1);
+var temp1= document.getElementById('testCall').value;
+var jsontext=jsontext.replace('Add1', temp1);
 var temp1= document.getElementById('Organization').value;
 var jsontext=jsontext.replace('j2', temp1);
 
 var temp1= document.getElementById('timestamp').value;
 var jsontext=jsontext.replace('j3', temp1);
+ var jsontext=jsontext.replace('Add2', temp1);
 
 var temp1= document.getElementById('mapLat').value;
 var jsontext=jsontext.replace('j4', temp1);
@@ -1483,8 +1485,8 @@ function Testlat(){
       <input name="DateTime"  required="required" id="DateTime"  placeholder="Click to Add Date/Time" tabindex="1"  title="Can be overwritten if needed." onclick="TimeNow('DateTime', true)" size="21" maxlength="19" /> 
       &nbsp;&nbsp; &nbsp;<span style="font-size: 14px;">
         <span style="font-size: 14px;">
-          <input name="timestamp" type="hidden" id="timestamp" size="30" />
-          </span><input name="timestamp2" type="hidden" id="timestamp2" size="40" />
+          <input name="timestamp" type="text" id="timestamp" size="30" />
+          </span><input name="timestamp2" type="text" id="timestamp2" size="40" />
       </span></p>
     <p> <strong>b.</strong><span class="style22"> </span><strong> To:</strong><span style="font-weight: normal">
       <input  name="MsgTo" id="MsgTo" placeholder="Send to Separate Calls/Emails with a SEMICOLON; You can modify prior to posting." tabindex="2" title="Send to" size="75" maxlength="75"  onblur="store()" />
@@ -1613,12 +1615,14 @@ function Testlat(){
     <span style="color: rgb(128, 0, 0);"><span style="color: black;"><span style="color: rgb(128, 0, 0);"><span style="color: black;">
     <span style="color: rgb(128, 0, 0);"><span style="color: black;"><span style="color: rgb(128, 0, 0);"><span style="color: black;"><span style="color: rgb(128, 0, 0);"><span style="color: black;"><span style="color: rgb(128, 0, 0);"><span style="color: black;">
     <textarea name="FormData" cols="70" rows="25" id="FormData" style="display: none;">MapFileName:T=j1
+DateTime:T=Add2
 Latitude:T=j4
 Longitude:T=j5 
 MGRS:T=j9
+Sender:T=Add1
 0a. Organization:T=j2
 0b. Subject:T=new1 
-1a. Date/Time:T=j3
+1a. DateTime:T=j3
 1b. To:T=new2
 1c. From:T=j6
 1d. Station Contact Name: T=j6a
@@ -1661,8 +1665,8 @@ MGRS:T=j9
 &nbsp;</span></span>
 &nbsp; &nbsp; &nbsp;&nbsp;<span style="font-family:  Arial, Helvetica, sans-serif;;">&nbsp;
 &nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="style25">Ver 5.0.5</span><span style="font-size: 14px;">
-<input name="Templateversion" type="hidden" id="Templateversion" value="Winlink Check-in 5.0.5" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="style25">Ver 5.0.6</span><span style="font-size: 14px;">
+<input name="Templateversion" type="hidden" id="Templateversion" value="Winlink Check-in 5.0.6" />
 <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="&lt;/table&gt;13" />
 </span></span></td>
 </tr>
