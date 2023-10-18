@@ -1,3 +1,6 @@
+1.0.245.0	Oct 17, 2023
+- Updated German version of DYFI form.  Thanks to Patrick, OE1LHP
+
 1.0.244.0	Oct 14, 2023
 - Improvements to the Bulletin form.
 - Updates to ARC Staff Requests form
