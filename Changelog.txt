@@ -1,3 +1,8 @@
+1.0.246.0	Nov 9, 2023
+- Bug fixes for Customizable Form
+- Bug fixed for Humanitarian Needs Identification form.
+- CERT Windshield Survey V 1.2.6 this corrects  Corrects a bug in the file reference code.
+
 1.0.245.0	Oct 17, 2023
 - Updated German version of DYFI form.  Thanks to Patrick, OE1LHP
 
