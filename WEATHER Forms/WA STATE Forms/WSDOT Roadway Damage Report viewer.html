@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html><head><!-- The purpose of this Incident Snapshot is to provide an initial assessment of impacted counties and tribal nations--><!-- to the State Emergency Operations Center following a disaster. This custom form has been developed for use in the --><!-- flmsg module of the Narrow Band Emergency Messaging System (NBEMS). --><!-- Chris Utzinger - KF7MJI 2/12/2015 --><!--Manhandled by Mike Judy - KG7MYX- April/May 2015 -->
+
+
+<title>WSDOT Roadway Damage Report</title><meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8">
+<style>
+
+h1 {
+font-weight: bold;
+}
+textarea {
+word-wrap: normal;
+}
+input[type='submit'] {
+width: 200px;
+margin-left: 25px;
+}
+
+@media only screen and (max-width: 950px) {
+td>p {
+font-family: .5em, arial, sans-serif;
+}
+input[type="radio"] {
+display: block;
+}
+input[type="text"] {
+font-size: .9em;
+}
+textarea {
+font-size: .9em;
+}
+}
+@media only screen and (max-width: 700px) {
+#main_table,
+#entry_table,
+#guideline_table {
+min-width: 100%;
+}
+td>p {
+font-family: .3em, arial, sans-serif;
+}
+textarea {
+font-size: .7em;
+}
+}
+@media only screen and (max-width: 480px) {
+textarea {
+font-size: .35em;
+}
+}
+@media print {
+p {
+font-size: 10pt;
+}
+h1 {
+font-size: 12pt;
+}
+h2 {
+font-size: 12pt;
+}
+}
+.formtext {font-family: Arial, Helvetica, sans-serif;
+font-size: 11pt;
+font-weight: normal;
+}
+
+ input[type=button] {
+
+  border: 2px solid #0f88f2;;
+   border-radius:.25rem;
+  color: black;
+   font-size: 14px;
+  padding: 2px 2px;
+ background-color: white;
+  text-decoration: none;
+  margin: 2px 2px;
+  cursor: pointer;
+}
+input[type=submit] {
+ border: 2px solid green;
+  border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+input[type=reset] {
+ border: 2px solid red;
+ border-radius:.25rem;
+  background-color: white;
+  color: black;
+  padding: 2px 2px;
+  font-size: 14px;
+   cursor: pointer;
+}
+.style2 {
+    font-size: 16px;
+    text-align: left;
+}
+.style3 {font-size: 18px}
+.Header {font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+	background-color: #EFEFEF;
+}
+.style4 {font-size: 12px; color: #000; text-align: center; background-color: #EFEFEF; font-family: Arial, Helvetica, sans-serif;}
+.style5 {color: #F8F8FF}
+</style>
+
+<script>
+
+    	
+  window.onload = function () { 
+ 
+ //Check the support for the File API support 
+ if (window.File && window.FileReader && window.FileList && window.Blob) {
+    var fileSelected = document.getElementById('txtfiletoread');
+	
+    fileSelected.addEventListener('change', function (e) { 
+         //Set the extension for the file 
+         var fileExtension = /text.*/; 
+         //Get the file object 
+         var fileTobeRead = fileSelected.files[0];
+        //Check of the extension match 
+         if (fileTobeRead.type.match(fileExtension)) { 
+             //Initialize the FileReader object to read the 2file 
+			
+             var fileReader = new FileReader(); 
+             fileReader.onload = function (e) { 
+                 var fileContents = document.getElementById('filecontents'); 
+                
+				document.getElementById('parseme').value =fileReader.result;
+				populateForm(obj = document.getElementById('parseme').value);
+					 } 
+             fileReader.readAsText(fileTobeRead); 
+         } 
+         else { 
+             alert("Please select text file"); 
+         }
+ 
+    }, false);
+} 
+ else { 
+     alert("Files are not supported"); 
+ } 
+      Checkboxes();
+
+ }
+ 
+
+
+ function Checkboxes (){
+    for (let i = 1; i < 18; i++) {
+   var v1= document.getElementById('A'+i).value;
+    
+  if (v1 =='[ X ]'){document.getElementById('BtnA'+i).checked=true}
+     
+}
+        
+ }
+
+</script></head>
+<body>
+<div style="text-align: center;" class="container" id="top">
+  <div align="center">
+    <input type="file" id="txtfiletoread" accept=".txt"  style="display: none;"/>
+&nbsp;<br>
+  </div>
+  <form  style="font-family: Arial;" pbzloc="3" onSubmit="  document.getElementById('parseme').value =''; return confirm('To complete your form submission, click OK and close the open browser window. You will return to the new message window so you can post your message to the outbox');" method="post" id="myform" enctype="multipart/form-data" action="http://{FormServer}:{FormPort}">
+    <table width="950" border="0" cellpadding="3" cellspacing="0" bordercolor="#DD5145" id="maintable" style="height: 440px; text-align: left; margin-left: auto; margin-right: auto;">
+<tbody>
+<tr>
+<td width="950" style="text-align: center; height: 40px; font-size: 20px;">
+<div align="left"></div>
+<table width="100%"  border="1" cellspacing="0" cellpadding="7">
+  <tr>
+    <td colspan="6"><table width="950"  border="0" cellpadding="1" cellspacing="0">
+      <tr>
+        <td width="46%" height="71" valign="top"><p align="left"><strong>Washington State<br>
+        Department of Transportation </strong></p></td>
+        <td width="54%" valign="middle"><p align="right"><strong>Roadway Damage Report Form </strong></p>
+            </td>
+      </tr>
+    </table></td>
+    </tr>
+  <tr style="text-align: left">
+    <td width="14%" valign="top"><span class="style2">1. Date</span><span class="formtext"><br>
+        <input name="InspectDate" type="text" id="InspectDate" onClick="DateTime('fulldate','InspectDate')" value="{var InspectDate}" size="15" readonly="readonly">
+    </span></td>
+    <td width="14%" valign="top"><span class="style2">2. Time</span><span class="formtext"><br>
+        <input name="InspectTime" type="text" id="InspectTime" onClick="DateTime('hm','InspectTime')" value="{var InspectTime}" size="15" readonly="readonly" />
+    </span></td>
+    <td colspan="4" valign="top">Status<span style="text-align: left"></span><br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3
+      <input readonly="readonly" name="BtnA14" type="checkbox" id="BtnA14" onclick="return false" value="checkbox"/>
+Open
+<input name="A14" type="hidden" id="A14" value="{var A14}" />
+&nbsp;&nbsp;&nbsp;&nbsp;4.
+        <input readonly="readonly"  name="BtnA15" type="checkbox" onclick="return false"id="BtnA15" value="{var Status}">        
+         Lane closure 
+          &nbsp;
+          <input name="A15" type="hidden" id="A15" value="{var A15}" />          &nbsp;&nbsp;&nbsp;5.
+<input readonly="readonly" onclick="return false" name="BtnA15" type="checkbox" id="BtnA16" value="{var Status}">
+          Restricted 
+          <input readonly="readonly"  name="A16" type="hidden" id="A16" value="{var A16}" />          &nbsp;&nbsp;&nbsp;&nbsp;6.
+<input readonly="readonly" onclick="return false" name="BtnA17" type="checkbox" id="BtnA17" value="{var Status}"> 
+          Full Closure
+          <input readonly="readonly"  name="A17" type="hidden" id="A17" value="{var A17}" /></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left" valign="top" nowrap="nowrap"><span class="style2"><span class="formtext">&nbsp;7. </span>Region<br>
+      <span class="formtext"> &nbsp;
+        <input readonly="readonly"  name="Region" type="text" required="required" id="Region" value="{var Region}" size="25" >
+        </span></span></td>
+    <td width="20%" align="left" valign="top" nowrap="nowrap" class="style2"><span class="formtext">8. </span>County<br>
+      <span class="formtext"> &nbsp;
+        <input readonly="readonly"  name="County" type="text" id="County" value="{var County}" size="25"  >
+        </span></td>
+    <td width="21%" align="left" valign="top" nowrap><span class="style2"><span class="formtext">&nbsp;9. </span>Route<br>
+      <span class="formtext"> &nbsp;
+        <input readonly="readonly"  name="Route" type="text" id="Route" value="{var Route}" size="30" >
+        </span></span></td>
+    <td width="18%" align="left" valign="top" nowrap="nowrap"><span class="style2">10. Milepost<br>
+      <span class="formtext"> &nbsp;
+        <input readonly="readonly"  name="Milepost" type="text"   required="required" id="Milepost" value="{var Milepost}" size="15" />
+        </span></span></td>
+    <td width="13%" valign="top" nowrap="nowrap"><span class="style2">11. Direction</span><br>
+      <span class="formtext">&nbsp;
+        <input readonly="readonly"  name="Direction" type="text"   required="required" id="Direction" value="{var Direction}" size="15" />
+        </span></td>
+  </tr>
+  <tr style="text-align: left">
+    <td colspan="2" valign="top" nowrap="nowrap"><span class="style2">12. Location: <br>
+      <span class="formtext"> &nbsp;
+        <input readonly="readonly"  name="Location" type="text" id="Location" value="{var Location}"  size="40" maxlength="40">
+        </span></span></td>
+    <td colspan="4" valign="top"><span class="style2"><span class="formtext">&nbsp;</span>13. Inspector's Name<br>
+      <span class="formtext"> &nbsp;</span>
+      <input readonly="readonly"  name="Inspector" type="text" required="required" id="Inspector" value="{var Inspector}" size="30" >
+      </span></td>
+  </tr>
+  <tr>
+    <td colspan="6" valign="top"><div align="left"><span class="style2">14. Remarks<br>
+      </span>
+      <span style="width:750px; margin: 10px;  word-wrap:break-word; display:inline-block;"><span class="style2">{var Remarks}</span><br>
+    </div></td>
+    </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td height="27" colspan="3" valign="top" bgcolor="#dee9f9"><div align="center"><strong>Roadway</strong></div></td>
+    <td colspan="3" valign="top" bgcolor="#dee9f9"><div align="center"><strong>Geo-technical Issues </strong></div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td height="27" colspan="3" valign="top"><div align="left"> 15.
+      <input readonly="readonly"  name="BtnA1" type="checkbox" id="BtnA1" onClick="return false" value="checkbox"/>
+      Cracking
+      <input readonly="readonly"  name="A1" type="hidden" id="A1" value="{var A1}"  />
+    </div></td>
+    <td colspan="3" valign="top"><div align="left">23.
+      <input readonly="readonly"  name="BtnA9" type="checkbox" id="BtnA9" onclick="return false" value="checkbox"/> 
+      Shoulder settlement
+      <input readonly="readonly"  name="A9" type="hidden" id="A9" value="{var A9}" />
+    </div></td>
+    </tr>
+  <tr class="style2">
+    <td colspan="3" valign="top"><div align="left"> 16.
+      <input readonly="readonly"  name="BtnA2" type="checkbox" id="BtnA2" onclick="return false"value="checkbox"/>
+      Buckling
+      <input readonly="readonly"  name="A2" type="hidden" id="A2" value="{var A2}" />
+    </div></td>
+    <td colspan="3" valign="top"><div align="left">24.
+      <input readonly="readonly"  name="BtnA10" type="checkbox" id="BtnA10" onclick="return false" value="checkbox"/> 
+      Sags in roadway safety features (guardrail)
+      <input readonly="readonly"  name="A10" type="hidden" id="A10" value="{var A10}" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="3" valign="top"><div align="left"> 17.
+      <input readonly="readonly"  name="BtnA3" type="checkbox" id="BtnA3" onclick="return false" value="checkbox"/>
+      Heaving or rolling
+      <input readonly="readonly"  name="A3" type="hidden" id="A3" value="{var A3}" />
+    </div></td>
+    <td colspan="3" valign="top"><div align="left">25.
+      <input readonly="readonly"  name="BtnA11" type="checkbox" id="BtnA11" onclick="return false"value="checkbox"/> 
+      Movement above or below tilted trees
+      <input readonly="readonly"  name="A11" type="hidden" id="A11" value="{var A11}" />
+    </div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="3" valign="top"><div align="left">18.
+        <input readonly="readonly"  name="BtnA4" type="checkbox" id="BtnA4" onclick="return false" value="checkbox"/>
+Pavement separation
+<input readonly="readonly"  name="A4" type="HIdden" id="A4" value="{var A4}" />
+    </div></td>
+    <td colspan="3" valign="top"><div align="left">26.
+        <input readonly="readonly"  name="BtnA12" type="checkbox" id="BtnA12" onclick="return false" value="checkbox"/> 
+        Debris on roadway
+        <input readonly="readonly"  name="A12" type="hidden" id="A12" value="{var A12}" />
+    </div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="3" valign="top"><div align="left">
+      19.
+          <input readonly="readonly"  name="BtnA5" type="checkbox" id="BtnA5" onclick="return false"value="checkbox"/> 
+      Change in configuration- striping or lane shift
+      <input readonly="readonly"  name="A5" type="hidden" id="A5" value="{var A5}" />
+    </div></td>
+    <td colspan="3" valign="top"><div align="left">27.
+        <input readonly="readonly"  name="BtnA13" type="checkbox" id="BtnA13" onclick="return false"value="checkbox"/> 
+        Sloughing slopes
+        <input readonly="readonly"  name="A13" type="hidden" id="A13" value="{var A13}" />
+    </div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="3" valign="top"><div align="left">
+      20. 
+          <input readonly="readonly"  name="BtnA6" type="checkbox" id="BtnA6" onclick="return false" value="checkbox"/> 
+      Change in roadway surface
+      <input readonly="readonly"  name="A6" type="hidden" id="A6" value="{var A6}" />
+    </div></td>
+    <td colspan="3" valign="top"><div align="left"></div></td>
+  </tr>
+  <tr bgcolor="#f8f8ff" class="style2">
+    <td colspan="3" valign="top"><div align="left">
+      21.
+          <input readonly="readonly"  name="BtnA7" type="checkbox" id="BtnA7" onclick="return false" value="checkbox"/> 
+      Signs, VMS and sign bridges
+      <input readonly="readonly"  name="A7" type="hidden" id="A7" value="{var A7}" />
+    </div></td>
+    <td colspan="3" valign="top" bgcolor="#FFFFFF"><div align="left"></div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="3" valign="top"> <div align="left">
+      22. 
+          <input readonly="readonly"  name="BtnA8" type="checkbox" id="BtnA8" onclick="return false"value="checkbox"/> 
+      Drainage
+      <input readonly="readonly"  name="A8" type="hidden" id="A8" value="{var A8}" />
+    </div></td>
+    <td colspan="3" valign="top"><div align="left"></div></td>
+  </tr>
+  <tr class="style2">
+    <td colspan="6" valign="top"><table width="316" border="0" align="right">
+      <tbody>
+        <tr>
+          <td colspan="2">Communications Log</td>
+        </tr>
+        <tr>
+          <td width="153" style="text-align: left">Sending Station</td>
+          <td width="101" align="left" nowrap="nowrap" style="text-align: left"><span class="formtext">
+            <input readonly="readonly"  name="SendingStation" type="text" id="SendingStation" value="{var SendingStation}" size="15" />
+          </span></td>
+        </tr>
+        <tr>
+          <td style="text-align: left">Receiving Station</td>
+          <td align="left" nowrap="nowrap" style="text-align: left"><span class="formtext">
+            <input readonly="readonly"  name="REceivingStation" type="text" id="REceivingStation" value="{var REceivingStation}" size="15" />
+          </span></td>
+        </tr>
+        <tr>
+          <td style="text-align: left">Radio frequency</td>
+          <td align="left" nowrap="nowrap" style="text-align: left"><span class="formtext">
+            <input readonly="readonly"  name="Freq" type="text" id="Freq" value="{var Freq}" size="15" />
+            MHZ </span></td>
+        </tr>
+        <tr>
+          <td nowrap="nowrap" style="text-align: left">Sent/Received</td>
+          <td align="left" nowrap="nowrap" style="text-align: left"><span class="formtext">
+            <input readonly="readonly"  name="TimeSend" type="text" id="TimeSend" value="{var TimeSend}" size="15" />
+            (local)</span></td>
+        </tr>
+      </tbody>
+    </table></td>
+    </tr>
+</table><p align="left" class="style2">DOT Form 410-005 Revised 10/2022<br>
+  &nbsp; <span style="font-size: 12px;"><b><span style="font-weight: normal;">
+    <input name="testCall" type="hidden" id="testCall" value="{MsgSender}" size="14" maxlength="13" />
+    </span></b></span>&nbsp;&nbsp;&nbsp;&nbsp;
+  <input name="Templateversion" type="hidden"
+
+                                    id="Templateversion" value="WSDOT Roadway Damage Report Form V 1.3" />
+  </span></span></span></span></span></span></span></span></span></span></span></span><span
+
+                                  class="style4">Version 1.3</span></td>
+</tr>
+</tbody>
+</table>
+    <div align="center"><tb> </tb>
+    </div>
+    <div class="row">
+<div class="col-lg-2">
+  <div align="left"></div>
+</div>
+</div>
+<!--end of row--> </form>
+</div>
+
+</body></html>

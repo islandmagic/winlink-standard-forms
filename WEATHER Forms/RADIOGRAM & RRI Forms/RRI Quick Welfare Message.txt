@@ -1,0 +1,19 @@
+Form: RRI Quick Welfare Message.html
+
+To:<var To_Name>
+Subject:I Am Safe Message From <var From_Name> - DO NOT REPLY!
+	
+Msg:
+It Was Sent From: <var Location>
+Original Message Created: <var ActivityDateTime1> (Local)
+<var Message>
+
+This is a ONE WAY email sent by Amateur Radio Operator: [<MsgSender>]
+via the Winlink Radio System.   www.winlink.org  
+------------------------------------
+Express Sending Station: <MsgSender>
+Template Version: <var Templateversion> 
+
+
+
+

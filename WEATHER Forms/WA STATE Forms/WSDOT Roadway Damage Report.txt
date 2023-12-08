@@ -1,0 +1,58 @@
+Form:WSDOT Roadway Damage Report initial.html,WSDOT Roadway Damage Report viewer.html
+Subject: WSDOT Roadway: <var Status>, <var Route>, MP: <var Milepost>, <var InspectDate> <var InspectTime>
+Msg:
+Washington State Department of Transportation
+
+WSDOT Roadway Damage Report
+
+1. Date: <var InspectDate>
+2. Time: <var InspectTime>
+
+STATUS: 
+3. <var A14> Open  
+4. <var A15> Lane closure 
+5. <var A16> Restricted
+6. <var A17> Full Closure 
+7. Region: <var Region> 
+8. County: <var County> 
+9. Route: <var Route>
+10. Milepost: <var Milepost> 
+11. Direction <var Direction> 
+12. Location: <var Location>  
+13. Inspector's Name: <var Inspector> 
+14. Remarks: 
+- <var Remarks>
+-----
+
+Roadway
+15. <var A1> Cracking 
+16. <var A2> Buckling 
+17. <var A3> Heaving or rolling 
+18. <var A4> Pavement separation 
+19. <var A5> Change in configuration- striping or lane shift 
+20. <var A6> Change in roadway surface 
+21. <var A7> Signs, VMS and sign bridges 
+22. <var A8> Drainage 
+
+Geo-technical Issues 
+23. <var A9> Shoulder settlement 
+24. <var A10> Sags in roadway safety features (guardrail) 
+25. <var A11> Movement above or below tilted trees 
+26. <var A12> Debris on roadway 
+27. <var A13> Sloughing slopes 
+
+------------------------
+
+Communications Log
+
+Sending Station: <var SendingStation>
+Receiving Station: <var REceivingStation>
+Radio frequency: <var Freq>   MHZ 
+Time Sent/Recieved: <var TimeSend>   (local)
+
+------------------------
+Express Sending Station: <MsgSender>
+Senders Express Version: <ProgramVersion>
+Senders Template Version: <var Templateversion>
+
+
