@@ -1,3 +1,6 @@
+1.0.248.0	Jan 5, 2024
+	Updated DYFI form to include best estimate of latitude and longitude accompanied by information showing the source of the location.
+	
 1.0.247.0	Dec 8, 2023
 - Bug fixes for Winlink Check-in form
 

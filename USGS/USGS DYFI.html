@@ -293,16 +293,11 @@ width:45px;
 .style31 {color: black}
 .style32 {color: #FF0000}
 .style33 {font-size: 16px; color: #000049; }
-.style34 {
-	font-size: 12px;
-	color: #FF0000;
-}
 .style35 {color: #006600}
 .style36 {
 	font-size: 14px;
 	font-style: italic;
 }
-.style37 {color: black; font-size: 14px; }
 .style27 {font-size: 12px}
 .style4 {color: #FF0000; font-style: italic; }
 .style45 {font-size: 12px}
@@ -437,6 +432,7 @@ mapTimeStamp();
 // GRPS routines
 function checkexternalGPS () {
 
+
 var GPSstr= document.getElementById("GPS").value;
  var n = GPSstr.search("available");
 //var O  = GPSstr.search("GPS");
@@ -446,39 +442,6 @@ document.getElementById("GPS").disabled = true;
 document.getElementById("CopyGPS").disabled = true;
 document.getElementById('CopyGPS').value = 'No External GPS is connected' ;
  }
-}
-function copyGPS() {
-
-var GPSstr= document.getElementById("myGPS").value;
-//alert(thestring);
-var nameArr = GPSstr.split(" ");
-var a =nameArr[0];
-var b =nameArr[1];
-
-document.getElementById("Lat").value = a;
-document.getElementById("Lon").value = b;
-
-var GPSstr= document.getElementById("GPS").value;
-var Fullstring = GPSstr;
-var Fullstring=Fullstring.replace(/-/gm, "\xB0");
-var Fullstring=Fullstring.replace(".","'");
-var Fullstring=Fullstring.replace(".","'");
-var Fullstring=Fullstring.replace("N", '"N');
-var Fullstring=Fullstring.replace("S", '"S');
-var Fullstring=Fullstring.replace("E", '"E');
-var Fullstring=Fullstring.replace("W", '"W');
-//var e1 = parse_gps (Fullstring);
-//alert(' 1010 parse '+Fullstring);
-document.getElementById("full").value=Fullstring;
-//backtodec (Fullstring);
-var nameArr = Fullstring.split(" ");
-var a =nameArr[0];
-var b =nameArr[1];
-//alert('407 '+a+' - '+b);
-d=convertDMSToDD(a);
-d1 =convertDMSToDD(b);
-document.getElementById("Lat").value=d
-document.getElementById("Lon").value=d1;
 }
 }; 
 function convertDMSToDD (dms) {
@@ -754,6 +717,8 @@ function SaveData() {
       
  SetDateTime('autodate'); SetDateTime('autotime');
  copyGPS();
+      // document.getElementById('WarningText').innerHTML = ""  ;
+      CheckGPSType();                                                                                                                                                                                                                                   
    // var rows = document.getElementsByClassName('toggle');
 
 ;      }
@@ -803,61 +768,13 @@ function copyGPS() {
 
 var GPSstr= document.getElementById("xmyGPS").value;
 //alert(xmyGPS);
-if(GPSstr !== '{GPS}'){
+if(GPSstr !== '(Not available)'){
 var nameArr = GPSstr.split(" ");
-var a =nameArr[0];
-var b =nameArr[1];
+var a =nameArr[0];document.getElementById('ciim_mapLat').value=a;
+var b =nameArr[1];document.getElementById('ciim_mapLon').value=b; 
+    document.getElementById('location_source').value= "GPS";
+    
 } //64
-
-var GPSstr= document.getElementById("xmyGPS").value;
-var Fullstring = GPSstr;
-var Fullstring=Fullstring.replace(/-/gm, "\xB0");
-var Fullstring=Fullstring.replace(".","'");
-var Fullstring=Fullstring.replace(".","'");
-var Fullstring=Fullstring.replace("N", '"N');
-var Fullstring=Fullstring.replace("S", '"S');
-var Fullstring=Fullstring.replace("E", '"E');
-var Fullstring=Fullstring.replace("W", '"W');
-//var e1 = parse_gps (Fullstring);
-//alert(' 1010 parse '+Fullstring);
-//document.getElementById("full").value=Fullstring;
-//backtodec (Fullstring);
-var nameArr = Fullstring.split(" ");
-var a =nameArr[0];
-var b =nameArr[1];
-//alert('1019 --------- '+b);
-d=convertDMSToDD(a);
-d = d+'';
-//d=d.padEnd(17, '0');
-
-d1 =convertDMSToDD(b);
-d1 = d1+'';
-//d1=d1.padEnd(15, '0')
-document.getElementById("ciim_mapLat").value = d.trim();
-document.getElementById("ciim_mapLon").value = d1.trim();
-
-function convertDMSToDD (dms) {
-t= "{"; var 
-n = GPSstr.search(t);
-
-//alert(dms);
-window.onerror = function(){
-   return true;
-}
-
-     var parts = dms.split(/[^\d+(\,\d+)\d+(\.\d+)?\w]+/);
-     var degrees = parseFloat(parts[0]);
-     var minutes = parseFloat(parts[1]);
-	 var seconds = parseFloat(parts[2].replace(',','.'));
-     var direction = parts[3];
-
-     var dd = degrees + Number((minutes  +'.'+ seconds )/60);
-dd= dd.toFixed(4);
-	     if (direction == 'S' || direction == 'W') {
-       dd = dd * -1;
-     } // Don't do anything for N or E
-     return dd;
-   }
 }
 
 function sendMail(){
@@ -1010,6 +927,25 @@ document.getElementById('xPintensity').value = myguess;
 document.getElementById('intensitydisplay').style.background =Intensitycolor; 
 
 }
+    
+   function CheckGPSType(){
+     
+     var  gpstype ='';
+       var  gpsnote ='';
+      var  gpstype =document.getElementById('location_source').value;
+      if (gpstype === "GPS") 
+    { document.getElementById('WarningText').innerHTML ="The latitude and longitude values are from your attached GPS unit. They will be used unless you change them."}
+if (gpstype === "SPECIFIED") 
+    {document.getElementById('WarningText').innerHTML ="The latitude and longitude values are the values you set in Winlink Express.  <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please check that they match your current location, and change them if they don't."}
+if (gpstype === "FORM ENTRY") {document.getElementById('WarningText').innerHTML ="The latitude and longitude values are the values you entered."}
+if (gpstype === "GRID SQUARE") { document.getElementById('WarningText').innerHTML = "The latitude & longitude values are approximate based on your grid square. Please enter more exact values if you know them."}
+ //Coordinates are grits square: the latitude and longitude values are approximate based on your grid square. Please enter more exact values if you know them.
+     //  var elem = document.getElementById('WarningText');  
+
+// elem.style.background = '#FFFFFF';  
+     document.getElementById('WarningText').value = gpsnote;                          
+        
+    }
 
 function createMapNote (){
    
@@ -1028,19 +964,15 @@ var notetext=notetext.replace('k15', temp1);
 
 var defLatitude= "{Latitude}";
 var defLongitude= "{Longitude}";
-var defGPSlat= "{GPSLatitude}";
- var defGPlon= "{GPSLongitude}";
-    
- 
+var gpstype =document.getElementById('location_source').value;
 
 var temp1= document.getElementById('user_id').value;
 var notetext=notetext.replace('k3', temp1);
- var gpstype = "User or GPS entered coordinates";
 var temp1= document.getElementById('ciim_mapLat').value;
-    if (temp1==''){temp1= defLatitude; var gpstype="Default center of user grid square"};
+if (temp1==''){temp1= defLatitude;}
 var notetext=notetext.replace('k4', temp1);
 var temp1= document.getElementById('ciim_mapLon').value;
-    if (temp1==''){temp1= defLongitude; var gpstype= "Default center of user's grid square"}
+   if (temp1==''){temp1= defLongitude; }
 var notetext=notetext.replace('k5', temp1);
     
 var notetext=notetext.replace('l6', gpstype);
@@ -1369,6 +1301,7 @@ var str = str.replace(",", " ");
 var str = str.replace("  ", " ");
 var d= str.split(' ');
 var cnt = d.length;
+  
 if (cnt >1) {
 document.getElementById('ciim_mapLat').value =d[0];
 document.getElementById('ciim_mapLon').value =d[1];
@@ -1663,16 +1596,19 @@ To complete your form submission, click Continue and close the open browser wind
               <input name="ciim_mapAddress" type="text" required="required" id="ciim_mapAddress" placeholder="STREET ADDRESS , CITY, STATE" Title="*STREET ADDRESS , CITY, STATE *" size="100" maxlength="90" /> 
              </p>
           <p class="style13"> <span class="style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For accurate mapping of your location enter GPS coordinates in the following  format: <span class="style35">32.504892 -116.982466</span></span>&nbsp;&nbsp;<br />
-            &nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             LAT
-            <input name="ciim_mapLat" type="text" id="ciim_mapLat" placeholder="Example: 32.504891"  style="color:blue" onchange="splitPaste(this.value);checklatlon(this.value, 'ciim_mapLat');Testlat();" onkeypress="return isNumberKey(event)" size="22" maxlength="40"; />
+            <input name="ciim_mapLat" type="text" id="ciim_mapLat" placeholder="Example: 32.504891"  style="color:blue" onchange="splitPaste(this.value);document.getElementById('location_source').value ='FORM ENTRY';checklatlon(this.value, 'ciim_mapLat');CheckGPSType();Testlat();" onkeypress="return isNumberKey(event)" value="{Latitude}" size="22" maxlength="40"; />
             &nbsp;&nbsp;&nbsp;LON 
-<input name="ciim_mapLon" type="text" id="ciim_mapLon" placeholder="Example: -116.982466"  style="color:blue" onchange="checklatlon(this.value, 'ciim_mapLon'); Testlon();" onkeypress="return isNumberKey(event)" size="22" maxlength="40" />
-                <input name="xmyGPS" type="hidden" id="xmyGPS" value="{GPS}" size="20" style="outline: none !important;
-    border:1px solid red;" />
-                </p>
-        <p class="style13">&nbsp;&nbsp;   &nbsp;<span class="style11"><em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you have a Winlink Express connected GPS device, the LAT/LON  in decimal degrees will be entered for you</em><em class="style11"></em></span><em class="style11">. </em></p>
-        <hr />        <p align="center" class="style24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The remainder of this form is optional. If you indicated NO, then do not answer the questions below. If you indicated YES, &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;then the answers below will help to create intensity info for the USGS. </p></td>
+<input name="ciim_mapLon" type="text" id="ciim_mapLon" placeholder="Example: -116.982466"  style="color:blue" onchange="checklatlon(this.value, 'ciim_mapLon');document.getElementById('location_source').value ='FORM ENTRY';CheckGPSType(); Testlon();" onkeypress="return isNumberKey(event)" value="{Longitude}" size="22" maxlength="40" />
+                <input name="xmyGPS" type="hidden" id="xmyGPS" style="outline: none !important;
+    border:1px solid red;" value="{GPS_SIGNED_DECIMAL}" size="20" />
+                <input name="location_source" type="hidden" id="location_source" placeholder=""  style="color:blue" value="{Location_Source}" readonly="readonly"  />
+          </p>
+          <p class="style13">&nbsp;&nbsp;   &nbsp;<span class="style11"><em> &nbsp;&nbsp;&nbsp;&nbsp;</em><strong><span id="WarningText" style="color: #0522F9">  </span></strong></span></p>
+        <hr />        
+        <p align="center" class="style24"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The remainder of this form is optional. If you indicated NO, then do not answer the questions below. <br />
+          If you indicated YES, then the answers below will help to create intensity info for the USGS. </p></td>
       </tr>
       <tr>
         <td valign="top" bgcolor="#F8F8FF"><p class="style13">What was your situation during the earthquake?
@@ -2195,7 +2131,7 @@ Building permanently shifted over foundation<br />
 DateTime:T=k00
 Latitude:T=k4 
 Longitude:T=k5 
-Source of coordinates:M:User or GPS entered coordinates,Default center of user's grid square=l6
+Source of coordinates:M:GPS,Specified,FORM ENTRY,GRID SQUARE=l6
 Address:T=l5 
 Sender:T=k3 
 This DYFI report is a:M:EXERCISE,REAL EVENT=k1
@@ -2871,9 +2807,9 @@ Other
  <input name="attached_file" type="hidden" id="attached_file" value="FormData.txt" />
  <input name="xMapfilename" type="hidden" id="xMapfilename" value="DYFI Map" />
  </span></span> </span></span></span></span></td>
-      <td width="10%">&nbsp;Ver 11.02 en<span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;">
+      <td width="10%">&nbsp;Ver 11.03 en<span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;">
       <span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;"><span style="font-size: 12px;">
-      <input name="form_version" type="hidden" id="form_version" value="DYFI Winlink form Ver 11.0.2 en" />
+      <input name="form_version" type="hidden" id="form_version" value="DYFI Winlink form Ver 11.0.3 en" />
       </span></span></span></span> </span></span> </span> </span></td>
     </tr>
   </table>
@@ -2887,6 +2823,6 @@ Other
 </tr>
 </tbody>
 </table>
-f
+
 </form>
 </body></html>
